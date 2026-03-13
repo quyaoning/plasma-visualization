@@ -3,6 +3,8 @@ import numpy as np
 import pandas as pd
 import time
 
+start_time = time.time()
+
 data = pd.read_csv("./Dataset/makeup_data.csv")
 
 plotter = pyv.Plotter(window_size=(900,700))
@@ -22,11 +24,11 @@ plotter.show_bounds(bounds=(xmin,xmax,ymin,ymax,zmin,zmax))
 
 # End of Ujjwal's code
 
-argon_color = 0
+argon_color = 1
 ionized_argon_color = 2
 electron_color = 3.0
 
-replacement_map = {'0': argon_color, '1': ionized_argon_color, '2': electron_color}
+replacement_map = {0: argon_color, 1: ionized_argon_color, 2: electron_color}
 
 
 data['is_ionized'] = data['is_ionized'].replace(replacement_map)
@@ -50,8 +52,10 @@ plotter.add_mesh(
     style="points",
     render_points_as_spheres=True
 )
-
 plotter.show(auto_close=False, interactive_update=True)
+
+print(time.time() - start_time)
+
 
 for arr in time_array :
     point_mesh.points = arr[:, 3:]
