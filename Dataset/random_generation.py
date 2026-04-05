@@ -67,5 +67,5 @@ for _ in range(initial_argons):
 
 df = pd.DataFrame(data)
 df.sort_values(by=['time', 'particle_id'], inplace=True)
-filename = 'makeup_data.csv'
+filename = 'data.csv'
 df.to_csv(filename, index=False)
