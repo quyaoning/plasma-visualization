@@ -5,7 +5,7 @@ import time
 
 start_time = time.time()
 
-data = pd.read_csv("./Dataset/makeup_data.csv")
+data = pd.read_csv("./Dataset/data.csv")
 
 plotter = pyv.Plotter(window_size=(900,700))
 plotter.set_background("black")
